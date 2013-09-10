@@ -21,7 +21,7 @@
 #include <inttypes.h>
 #include <assert.h>
 #include <limits.h>
-#include <search.h>
+//#include <search.h>
 
 #include <arpa/inet.h>
 #include <netdb.h>
