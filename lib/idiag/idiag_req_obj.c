@@ -11,7 +11,11 @@
 
 #include <netlink-private/netlink.h>
 #include <netlink/idiag/req.h>
+#ifdef __ANDROID__
+#include <linux/inet_diag_priv.h>
+#else
 #include <linux/inet_diag.h>
+#endif
 
 /**
  * @ingroup idiag
