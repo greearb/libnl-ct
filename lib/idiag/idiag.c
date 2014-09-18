@@ -13,7 +13,11 @@
 #include <netlink/netlink.h>
 #include <netlink/cache.h>
 #include <netlink/idiag/idiagnl.h>
+#ifdef __ANDROID__
+#include <linux/inet_diag_priv.h>
+#else
 #include <linux/inet_diag.h>
+#endif
 
 /**
  * @name Socket Creation

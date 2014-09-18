@@ -83,6 +83,11 @@
 
 #define IPV4_BEET_PHMAXLEN 8
 
+#ifdef __ANDROID__
+/* Fix compile against android headers */
+typedef __u16 __bitwise __sum16;
+#endif
+
 struct iphdr {
 #if defined(__LITTLE_ENDIAN_BITFIELD)
 	__u8	ihl:4,

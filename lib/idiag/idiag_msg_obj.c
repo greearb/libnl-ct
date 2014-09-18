@@ -8,7 +8,11 @@
 #include <netlink/idiag/msg.h>
 #include <netlink/idiag/meminfo.h>
 #include <netlink/idiag/vegasinfo.h>
+#ifdef __ANDROID__
+#include <linux/inet_diag_priv.h>
+#else
 #include <linux/inet_diag.h>
+#endif
 
 
 /** @cond SKIP */
