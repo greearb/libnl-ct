@@ -133,6 +133,8 @@ struct tcpvegas_info {
 	__u32	tcpv_minrtt;
 };
 
+#if 0
+// Moved to newer Android chain, and this is no longer needed. --Ben
 enum {
 	TCP_ESTABLISHED = 1,
 	TCP_SYN_SENT,
@@ -149,5 +151,6 @@ enum {
 
 	TCP_MAX_STATES  /* Leave at the end! */
 };
+#endif
 
 #endif /* _UAPI_INET_DIAG_H_ */
