@@ -22,6 +22,9 @@
 #include <linux/types.h>
 #include <linux/libc-compat.h>
 #include <linux/socket.h>
+#ifdef __ANDROID__
+#include <bits/in_addr.h>
+#endif
 
 #if __UAPI_DEF_IN_IPPROTO
 /* Standard well-defined IP protocols.  */
@@ -81,10 +84,12 @@ enum {
 #endif
 
 #if __UAPI_DEF_IN_ADDR
+#ifndef __ANDROID__
 /* Internet address. */
 struct in_addr {
 	__be32	s_addr;
 };
+#endif
 #endif
 
 #define IP_TOS		1

@@ -23,6 +23,10 @@
 #include <limits.h>
 //#include <search.h>
 
+#ifdef __ANDROID__
+#include <bits/in_addr.h>
+#endif
+
 #include <arpa/inet.h>
 #include <netdb.h>
 

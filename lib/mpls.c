@@ -6,6 +6,9 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef __ANDROID__
+#include <bits/in_addr.h>
+#endif
 #include <netinet/in.h>
 #include <netlink/netlink-compat.h>
 #include <netlink-private/route/mpls.h>
