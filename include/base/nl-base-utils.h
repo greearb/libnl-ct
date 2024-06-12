@@ -258,6 +258,16 @@ static inline bool _nl_memeq(const void *s1, const void *s2, size_t len)
 	return _nl_memcmp(s1, s2, len) == 0;
 }
 
+#ifndef __STDC_VERSION__
+#        define restrict
+#else
+#        if __STDC_VERSION__ < 199901L
+#            define restrict
+#        else
+#            /* all ok */
+#        endif
+#endif
+
 static inline void *_nl_memcpy(void *restrict dest, const void *restrict src,
 			       size_t n)
 {

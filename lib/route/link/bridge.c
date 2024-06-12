@@ -1132,6 +1132,7 @@ int rtnl_link_bridge_enable_vlan(struct rtnl_link *link)
 int rtnl_link_bridge_set_port_vlan_map_range (struct rtnl_link *link, uint16_t start, uint16_t end, int untagged)
 {
 	struct rtnl_link_bridge_vlan * vinfo;
+	uint16_t i;
 
 	IS_BRIDGE_LINK_ASSERT(link);
 
@@ -1143,7 +1144,7 @@ int rtnl_link_bridge_set_port_vlan_map_range (struct rtnl_link *link, uint16_t s
 	if (start == 0 || start > end || end >= VLAN_VID_MASK)
 		return -NLE_INVAL;
 
-	for (uint16_t i = start; i <= end; i++)
+	for (i = start; i <= end; i++)
 	{
 		set_bit(i,vinfo->vlan_bitmap);
 		if (untagged) {
@@ -1173,6 +1174,7 @@ int rtnl_link_bridge_set_port_vlan_map_range (struct rtnl_link *link, uint16_t s
 int rtnl_link_bridge_unset_port_vlan_map_range (struct rtnl_link *link, uint16_t start, uint16_t end)
 {
 	struct rtnl_link_bridge_vlan * vinfo;
+	uint16_t i;
 
 	IS_BRIDGE_LINK_ASSERT(link);
 
@@ -1184,7 +1186,7 @@ int rtnl_link_bridge_unset_port_vlan_map_range (struct rtnl_link *link, uint16_t
 	if (start == 0 || start > end || end >= VLAN_VID_MASK)
 		return -NLE_INVAL;
 
-	for (uint16_t i = start; i <= end; i++)
+	for (i = start; i <= end; i++)
 	{
 		unset_bit(i,vinfo->vlan_bitmap);
 		unset_bit(i,vinfo->untagged_bitmap);
